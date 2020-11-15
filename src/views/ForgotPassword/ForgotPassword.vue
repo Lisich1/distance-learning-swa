@@ -15,22 +15,29 @@
 	</div>
 </template>
 
+// TODO
+// Когда письмо отправлено, убрать поле валидации
+
 <script>
 export default {
 	data: () => ({
 		login: null,
 		message: null,
+		success: false,
 		rules: {
-			required: (value) => !!value || "Необходимо заполнить поле",
+			required: function (value) {
+				return !!value || "Необходимо заполнить поле";
+			},
 		},
 	}),
 	methods: {
 		sendEmail() {
 			// Отправляет на серв
 			// типа ответ
-			let sucsess = true;
-			if (sucsess) {
+			this.success = true;
+			if (this.success) {
 				this.message = "На мыло отпраленно письмо, больше не тупите";
+				this.login = "";
 			} else this.message = "Неверный email или email не привязан к аккаунту";
 			console.log(this.message);
 		},

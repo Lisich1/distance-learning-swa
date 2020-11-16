@@ -1,9 +1,9 @@
 <template>
-	<div id="app">
+	<v-app id="app">
 		<router-view />
-	</div>
+	</v-app>
 </template>
 
 <style>
-    @import 'assets/style.scss';
+    @import './assets/Style.scss';
 </style>

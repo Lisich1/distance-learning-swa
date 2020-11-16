@@ -11,6 +11,11 @@ const routes = [
 		component: Home,
 	},
 	{
+		path: "/sign-up",
+		name: "sign-up",
+		component: () => import("../views/SignUp/SignUp")
+	},
+	{
 		path: "/forgot-password",
 		name: "ForgotPassword",
 		component: () => import("../views/ForgotPassword/ForgotPassword.vue"),
@@ -18,6 +23,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+	mode: "history",
 	routes,
 });
 

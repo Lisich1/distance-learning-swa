@@ -6,7 +6,7 @@
 			<router-link to="/reset-password">Восстановление пароля</router-link>
 		</div>
 		<router-view />
-	</v-app>
+	</div>
 </template>
 
 <style>

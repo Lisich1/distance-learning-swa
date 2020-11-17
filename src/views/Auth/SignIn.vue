@@ -1,11 +1,11 @@
 <template>
   <v-card
-    class="card mx-auto"
+    class="sign-in mx-auto"
   >
     <v-form
       ref="form"
       v-model="form"
-      class="form pa-4"
+      class="sign-in__form pa-4"
     >
       <v-text-field
         v-model="login"
@@ -53,13 +53,13 @@
   }
 </script>
 
-<style>
-  .card {
+<style lang="scss">
+  .sign-in {
     margin-bottom: auto;
     margin-top: auto;
-  }
-  .form {
-    width: 500px;
-    
+
+    &__form {
+      width: 500px;
+    }
   }
 </style>

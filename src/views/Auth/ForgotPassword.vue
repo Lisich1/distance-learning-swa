@@ -19,7 +19,7 @@
 				:messages="message"
 			/>
 
-			<v-btn :disabled="!login" @click="sendEmail"> Восстановить пароль</v-btn>
+			<Button :disabled="!login" @click="sendEmail"></Button>
 		</v-form>
 	</div>
 </template>
@@ -28,7 +28,11 @@
 // Когда письмо отправлено, убрать поле валидации
 
 <script>
+import Button from "@/components/Button/Button";
 export default {
+	components: {
+		Button,
+	},
 	data: () => ({
 		login: null,
 		message: null,

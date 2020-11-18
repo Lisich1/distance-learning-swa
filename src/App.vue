@@ -12,6 +12,6 @@
 
 
 <style lang="scss">
-@import url("./assets/Style.scss");
-@import url("./views/Auth/auth.scss");
+@import "./assets/Style.scss";
+@import "./views/Auth/auth.scss";
 </style>

@@ -48,7 +48,7 @@ export default {
 		sendEmail() {
 			// Отправляет на серв
 			// типа ответ
-			this.success = false;
+			this.success = true;
 			if (this.success) {
 				this.isSent = true;
 				this.message = "На мыло отпраленно письмо, больше не тупите";

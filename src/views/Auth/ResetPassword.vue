@@ -10,6 +10,8 @@
 				v-model="password"
 				:append-icon="isVisible ? 'mdi-eye' : 'mdi-eye-off'"
 				@click:append="() => (isVisible = !isVisible)"
+				outlined
+				dense
 			/>
 			<v-text-field
 				:type="repeatIsVisible ? 'text' : 'password'"
@@ -20,8 +22,10 @@
 				:error-messages="error"
 				:append-icon="repeatIsVisible ? 'mdi-eye' : 'mdi-eye-off'"
 				@click:append="() => (repeatIsVisible = !repeatIsVisible)"
+				outlined
+				dense
 			/>
-			<v-btn :disabled="!match" @click="resetPassword">
+			<v-btn class="button" :disabled="!match" @click="resetPassword">
 				Восстановить пароль</v-btn
 			>
 		</v-form>

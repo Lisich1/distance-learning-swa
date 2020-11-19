@@ -1,0 +1,18 @@
+.button {
+	width: 306px;
+	height: 40px;
+
+	background-color: #c4c4c4;
+	border-radius: 5px;
+
+	text-transform: none !important;
+	font-size: 14px;
+	line-height: 17px;
+	&:focus {
+		border: 2px solid #000000;
+	}
+	&:hover {
+		background: #c4c4c4;
+		box-shadow: 0px 22px 44px -15px rgba(0, 0, 0, 0.25);
+	}
+}

@@ -1,15 +1,12 @@
 <template>
 	<div class="forgot-password">
-		<div v-if="isSent" class="forgot-password__success">
-			<img src="../../assets/tick-square.svg" alt="success" />
-
-			<span>
-				В течении минуты на ваш e-mail придет письмо для подтверждения
-				электронного адреса, следуйте инструкции в письме
-			</span>
-		</div>
+		<SuccessPanel v-if="isSent"
+			>В течении минуты на ваш e-mail придет письмо для подтверждения
+			электронного адреса, следуйте инструкции в письме</SuccessPanel
+		>
 		<v-form v-else class="forgot-password__form">
 			<v-text-field
+				class="input"
 				type="text"
 				label="Логин или email"
 				name="login"
@@ -17,21 +14,22 @@
 				:rules="[rules.required]"
 				v-model="login"
 				:messages="message"
+				outlined
+				dense
 			/>
-
-			<Button :disabled="!login" @click="sendEmail"></Button>
+			<v-btn class="button" :disabled="!login" @click="sendEmail"
+				>Восстановить</v-btn
+			>
 		</v-form>
 	</div>
 </template>
 
-// TODO
-// Когда письмо отправлено, убрать поле валидации
 
 <script>
-import Button from "@/components/Button/Button";
+import SuccessPanel from "@/components/SuccessPanel";
 export default {
 	components: {
-		Button,
+		SuccessPanel,
 	},
 	data: () => ({
 		login: null,
@@ -51,10 +49,8 @@ export default {
 			this.success = true;
 			if (this.success) {
 				this.isSent = true;
-				this.message = "На мыло отпраленно письмо, больше не тупите";
 				this.login = "";
 			} else this.message = "Неверный email или email не привязан к аккаунту";
-			console.log(this.message);
 		},
 	},
 };

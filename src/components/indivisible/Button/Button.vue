@@ -1,12 +1,13 @@
 <template>
 	<v-btn
+		class="button"
 		:disabled="disabled"
 		:loading="loading"
-		active-class="v-btn--active"
 		@click="$emit('click')"
+		elevation=""
 	>
-		Восстановить пароль</v-btn
-	>
+		<slot></slot
+	></v-btn>
 </template>
 
 <script>
@@ -19,6 +20,6 @@ export default {
 	},
 };
 </script>
-
-<style>
+<style lang="scss">
+// @import "./button.scss";
 </style>

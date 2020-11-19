@@ -17,9 +17,7 @@
 				outlined
 				dense
 			/>
-			<v-btn class="button" :disabled="!login" @click="sendEmail"
-				>Восстановить</v-btn
-			>
+			<Button :disabled="!login" @click="sendEmail">Восстановить</Button>
 		</v-form>
 	</div>
 </template>
@@ -27,9 +25,11 @@
 
 <script>
 import SuccessPanel from "@/components/SuccessPanel";
+import Button from "@/components/Button/Button";
 export default {
 	components: {
 		SuccessPanel,
+		Button,
 	},
 	data: () => ({
 		login: null,

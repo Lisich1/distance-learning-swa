@@ -1,10 +1,11 @@
 <template>
 	<v-btn
 		class="button"
+		height="40px"
 		:disabled="disabled"
 		:loading="loading"
 		@click="$emit('click')"
-		elevation=""
+		color="#c4c4c4"
 	>
 		<slot></slot
 	></v-btn>
@@ -21,5 +22,5 @@ export default {
 };
 </script>
 <style lang="scss">
-// @import "./button.scss";
+@import "./button.scss";
 </style>

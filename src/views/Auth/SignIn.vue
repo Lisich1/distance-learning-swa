@@ -47,14 +47,3 @@ export default {
 	}),
 };
 </script>
-
-<style lang="scss">
-// .sign-in {
-// 	margin-bottom: auto;
-// 	margin-top: auto;
-
-// 	&__form {
-// 		width: 500px;
-// 	}
-// }
-</style>

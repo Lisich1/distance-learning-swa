@@ -25,14 +25,17 @@
 				outlined
 				dense
 			/>
-			<v-btn class="button" :disabled="!match" @click="resetPassword">
-				Восстановить пароль</v-btn
+
+			<Button :disabled="!match" @click="resetPassword">
+				Восстановить пароль</Button
 			>
 		</v-form>
 	</div>
 </template>
 
 <script>
+import Button from "@/components/Button/Button";
+
 export default {
 	data() {
 		return {
@@ -67,6 +70,9 @@ export default {
 				return;
 			}
 		},
+	},
+	components: {
+		Button,
 	},
 };
 </script>

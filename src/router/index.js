@@ -13,7 +13,7 @@ const routes = [
 	{
 		path: "/sign-in",
 		name: "signIn",
-		component: () => import("../views/Auth/SignIn")
+		component: () => import("../views/Auth/SignIn"),
 	},
 	{
 		path: "/forgot-password",
@@ -24,6 +24,11 @@ const routes = [
 		path: "/reset-password",
 		name: "ResetPassword",
 		component: () => import("../views/Auth/ResetPassword.vue"),
+	},
+	{
+		path: "/register-teacher",
+		name: "RegisterTeacher",
+		component: () => import("../views/Register/RegisterTeacher.vue"),
 	},
 ];
 

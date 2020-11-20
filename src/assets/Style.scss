@@ -1,3 +1,6 @@
+// For search select
+// @import "vue-select/src/scss/vue-select.scss";
+
 h2 {
 	font-size: 22px;
 	line-height: 26px;
@@ -12,6 +15,11 @@ span {
 }
 .input {
 	width: 306px;
+}
+.search-select {
+	background-color: #e8e8e8 !important;
+	width: 306px !important;
+	// border-radius: 5px;
 }
 //// Временно
 

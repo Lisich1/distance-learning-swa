@@ -1,33 +1,33 @@
 <template>
 	<div class="reset-password">
-		<v-form class="reset-password__form">
-			<v-text-field
-				:type="isVisible ? 'text' : 'password'"
-				label="Новый пароль"
-				name="password"
-				id="password"
-				:rules="[rules.required, rules.minLength]"
-				v-model="password"
-				:append-icon="isVisible ? 'mdi-eye' : 'mdi-eye-off'"
-				@click:append="() => (isVisible = !isVisible)"
-				outlined
-				dense
-			/>
-			<v-text-field
-				:type="repeatIsVisible ? 'text' : 'password'"
-				label="Повторите пароль"
-				name="password-repeat"
-				id="password-repeat"
-				v-model="passwordRepeat"
-				:error-messages="error"
-				:append-icon="repeatIsVisible ? 'mdi-eye' : 'mdi-eye-off'"
-				@click:append="() => (repeatIsVisible = !repeatIsVisible)"
-				outlined
-				dense
-			/>
-
-			<Button :disabled="!match" @click="resetPassword">
-				Восстановить пароль</Button
+		<v-form class="reset-password__form" v-model="form">
+			<h2>Восстановление пароля</h2>
+			<div class="input reset-password__password">
+				<v-text-field
+					:type="isVisible ? 'text' : 'password'"
+					label="Новый пароль"
+					:rules="[rules.required, rules.length(6)]"
+					v-model="password"
+					:append-icon="isVisible ? 'mdi-eye' : 'mdi-eye-off'"
+					@click:append="() => (isVisible = !isVisible)"
+					outlined
+					dense
+				/>
+			</div>
+			<div class="input reset-password__password">
+				<v-text-field
+					:type="repeatIsVisible ? 'text' : 'password'"
+					label="Повторите пароль"
+					v-model="passwordRepeat"
+					:error-messages="error"
+					:append-icon="repeatIsVisible ? 'mdi-eye' : 'mdi-eye-off'"
+					@click:append="() => (repeatIsVisible = !repeatIsVisible)"
+					outlined
+					dense
+				/>
+			</div>
+			<Button :disabled="!match || !form" @click="resetPassword">
+				Восстановить</Button
 			>
 		</v-form>
 	</div>
@@ -35,10 +35,12 @@
 
 <script>
 import Button from "@/components/Button/Button";
+// import Input from "@/components/Input/Input";
 
 export default {
 	data() {
 		return {
+			form: false,
 			password: null,
 			passwordRepeat: null,
 			isVisible: false,
@@ -49,12 +51,8 @@ export default {
 				required: function (value) {
 					return !!value || "Необходимо заполнить поле";
 				},
-				minLength: function (value) {
-					return (
-						(value || "").length >= 5 ||
-						"Пароль должен быть не менее 5 символов"
-					);
-				},
+				length: (len) => (v) =>
+					(v || "").length >= len || `Минимальная длина ${len}`,
 			},
 		};
 	},

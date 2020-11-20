@@ -4,17 +4,14 @@
 			>В течении минуты на ваш e-mail придет письмо для подтверждения
 			электронного адреса, следуйте инструкции в письме</SuccessPanel
 		>
-		<v-form v-else class="forgot-password__form">
+		<v-form v-else class="forgot-password__form" v-model="form">
 			<h2>Восстановление пароля</h2>
-			<div class="forgot-password__email">
+			<div class="input forgot-password__email">
 				<v-text-field
 					class="input"
 					type="text"
 					label="E-mail"
-					name="email"
-					id="email"
 					:rules="[rules.required]"
-					v-model="email"
 					:messages="message"
 					outlined
 					dense
@@ -22,7 +19,7 @@
 			</div>
 			<Button
 				class="forgot-password__button"
-				:disabled="!email"
+				:disabled="!form"
 				@click="sendEmail"
 				>Восстановить</Button
 			>
@@ -40,10 +37,9 @@ export default {
 		Button,
 	},
 	data: () => ({
-		email: null,
 		message: null,
 		success: false,
-		isSent: false,
+		form: false,
 		rules: {
 			required: function (value) {
 				return !!value || "Необходимо заполнить поле";
@@ -57,7 +53,6 @@ export default {
 			this.success = true;
 			if (this.success) {
 				this.isSent = true;
-				this.email = "";
 			} else this.message = "Неверный email или email не привязан к аккаунту";
 		},
 	},

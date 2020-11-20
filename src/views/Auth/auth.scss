@@ -1,24 +1,52 @@
-.forgot-password {
+.forgot-password,
+.reset-password,
+.sign-in {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	width: 369px;
-	height: 298px;
-	box-shadow: 0px 22px 44px -15px rgba(0, 0, 0, 0.25);
+	&__form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		width: 370px;
+		height: 298px;
+		padding-top: 56px;
+		padding-bottom: 80px;
+		box-shadow: 0px 22px 44px -15px rgba(0, 0, 0, 0.25);
+		a {
+			text-decoration: none;
+		}
+	}
 
-	background-color: wheat;
 	h2 {
 		text-align: center;
-		margin-top: 56px;
 	}
 	&__email {
 		margin-top: 26px;
-		margin-bottom: 5px;
 	}
 }
 .reset-password {
-	display: flex;
+	&__form {
+		height: 355px;
+	}
+	&__password {
+		margin-top: 26px;
+	}
+	&__password + &__password {
+		margin-top: 0;
+	}
+}
+.sign-in {
+	&__form {
+		justify-content: start;
+		height: 405px;
+		padding-bottom: 66px;
+	}
+	&__login {
+		margin-top: 26px;
+	}
 
-	align-items: center;
-	justify-content: center;
+	&__button {
+		margin-top: 14px;
+	}
 }

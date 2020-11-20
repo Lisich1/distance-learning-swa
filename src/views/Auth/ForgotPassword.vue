@@ -5,19 +5,27 @@
 			электронного адреса, следуйте инструкции в письме</SuccessPanel
 		>
 		<v-form v-else class="forgot-password__form">
-			<v-text-field
-				class="input"
-				type="text"
-				label="Логин или email"
-				name="login"
-				id="login"
-				:rules="[rules.required]"
-				v-model="login"
-				:messages="message"
-				outlined
-				dense
-			/>
-			<Button :disabled="!login" @click="sendEmail">Восстановить</Button>
+			<h2>Восстановление пароля</h2>
+			<div class="forgot-password__email">
+				<v-text-field
+					class="input"
+					type="text"
+					label="E-mail"
+					name="email"
+					id="email"
+					:rules="[rules.required]"
+					v-model="email"
+					:messages="message"
+					outlined
+					dense
+				/>
+			</div>
+			<Button
+				class="forgot-password__button"
+				:disabled="!email"
+				@click="sendEmail"
+				>Восстановить</Button
+			>
 		</v-form>
 	</div>
 </template>
@@ -32,7 +40,7 @@ export default {
 		Button,
 	},
 	data: () => ({
-		login: null,
+		email: null,
 		message: null,
 		success: false,
 		isSent: false,
@@ -49,7 +57,7 @@ export default {
 			this.success = true;
 			if (this.success) {
 				this.isSent = true;
-				this.login = "";
+				this.email = "";
 			} else this.message = "Неверный email или email не привязан к аккаунту";
 		},
 	},

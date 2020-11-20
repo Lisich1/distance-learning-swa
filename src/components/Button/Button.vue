@@ -6,6 +6,7 @@
 		:loading="loading"
 		@click="$emit('click')"
 		color="#c4c4c4"
+		small
 	>
 		<slot></slot
 	></v-btn>

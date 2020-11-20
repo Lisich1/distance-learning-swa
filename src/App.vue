@@ -1,5 +1,5 @@
 <template>
-	<v-app id="app">
+	<v-app id="app" class="red">
 		<div id="nav">
 			<router-link to="/">Home</router-link> |
 			<router-link to="/forgot-password">Забыли пароль?</router-link> |

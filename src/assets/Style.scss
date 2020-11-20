@@ -1,3 +1,14 @@
-// @import "../components/indivisible/button.scss";
-// @import "../components/indivisible/input.scss";
-// $color-pack: false;
+h2 {
+	font-size: 22px;
+	line-height: 26px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+//// Временно
+
+.v-application--wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

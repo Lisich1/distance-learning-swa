@@ -3,6 +3,4 @@ import Vuetify from "vuetify/lib";
 
 Vue.use(Vuetify);
 
-export default new Vuetify({
-	// customVariables: ["~/assets/variables.scss"],
-});
+export default new Vuetify({});

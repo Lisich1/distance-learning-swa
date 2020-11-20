@@ -40,6 +40,7 @@ export default {
 		message: null,
 		success: false,
 		form: false,
+		isSent: false,
 		rules: {
 			required: function (value) {
 				return !!value || "Необходимо заполнить поле";

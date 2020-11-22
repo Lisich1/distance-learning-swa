@@ -1,17 +1,26 @@
 <template>
-	<v-app id="app" class="red">
-		<div id="nav">
-			<router-link to="/">Home</router-link> |
-			<router-link to="/register-teacher">Регистрация учителя</router-link> |
-			<router-link to="/forgot-password">Забыли пароль?</router-link> |
-			<router-link to="/reset-password">Восстановление пароля</router-link> |
-			<router-link to="/sign-in">Авторизация</router-link>
-		</div>
-		<router-view />
+	<v-app id="app">
+		<component :is="layout">
+			<router-view />
+		</component>
 	</v-app>
 </template>
 
-
+<script>
+import AuthLayout from "@/layouts/AuthLayout";
+import MainLayout from "@/layouts/MainLayout";
+export default {
+	computed: {
+		layout() {
+			return (this.$route.meta.layout || "main") + "-layout";
+		},
+	},
+	components: {
+		AuthLayout,
+		MainLayout,
+	},
+};
+</script>
 <style lang="scss">
 @import "./assets/style.scss";
 @import "./views/Auth/auth.scss";

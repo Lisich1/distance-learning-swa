@@ -1,5 +1,5 @@
 <template>
-	<div>home</div>
+	<div>{{ $route.meta.layout }}</div>
 </template>
 
 <script>

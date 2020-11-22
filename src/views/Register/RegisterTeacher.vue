@@ -5,7 +5,7 @@
 			<div class="input register-teacher__fio">
 				<v-text-field
 					label="ФИО преподавателя"
-					:rules="[rules.required, rules.fio(1)]"
+					:rules="[rules.required]"
 					outlined
 					dense
 				/>
@@ -103,7 +103,7 @@ export default {
 		margin-top: 25px;
 	}
 	&__select ~ &__select {
-		margin-top: 19px;
+		margin-top: 24px;
 	}
 	&__button {
 		margin-top: 48px;

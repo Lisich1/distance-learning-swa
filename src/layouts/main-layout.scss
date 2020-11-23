@@ -1,62 +1,64 @@
 .main-layout {
+	display: grid;
+	grid-template-rows: 98px 1fr;
+	grid-template-columns: 250px 1fr;
+	grid-template-areas:
+		"sidebar header"
+		"sidebar section";
 	height: 100vh;
 	width: 100%;
-	> nav {
-		height: 100vh;
-		width: 250px;
+	.sidebar {
+		grid-area: sidebar;
 		background: #c4c4c4;
 		border-radius: 0px 13px 13px 0px;
 		padding: 44px 24px 44px 23px;
-	}
-	&__logo {
-		height: 44px;
-	}
-	&__teacher {
-	}
-	&__content {
-		width: 100%;
-		height: 100vh;
-		overflow: auto;
-	}
-	.main-menu {
-		&__link {
-			width: 203px;
-			height: 50px;
-			text-decoration: none;
-			font-style: normal;
-			font-weight: normal;
-			font-size: 16px;
-			line-height: 19px;
-			color: #ffffff;
-			img {
-				margin-left: 25.5px;
-				margin-right: 24.5px;
+		&__logo {
+		}
+		&__teacher {
+		}
+		.main-menu {
+			&__link {
+				width: 203px;
+				height: 50px;
+				text-decoration: none;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 16px;
+				line-height: 19px;
+				color: #ffffff;
+				img {
+					margin-left: 25.5px;
+					margin-right: 24.5px;
+				}
+			}
+			&__link-active {
+				background: #777777;
+				border-radius: 13px;
 			}
 		}
-		&__link-active {
-			background: #777777;
+		&__help {
+			width: 169px;
+			height: 142px;
+			background-color: #f2f2f2;
 			border-radius: 13px;
+			padding-top: 21px;
+			padding-bottom: 14px;
+			span {
+				font-size: 12px;
+				line-height: 14px;
+			}
+			a {
+				text-decoration: none;
+				font-size: 12px;
+				line-height: 14px;
+				color: #7b92e3;
+			}
 		}
 	}
-	&__help {
-		width: 169px;
-		height: 142px;
-		background-color: #f2f2f2;
-		border-radius: 13px;
-		padding-top: 21px;
-		padding-bottom: 14px;
-		span {
-			font-size: 12px;
-			line-height: 14px;
-		}
-		a {
-			text-decoration: none;
-			font-size: 12px;
-			line-height: 14px;
-			color: #7b92e3;
-		}
+	.header {
+		grid-area: header;
 	}
-	header {
-		width: 100%;
+	.content {
+		grid-area: section;
 	}
 }

@@ -1,8 +1,8 @@
 <template>
-	<div fluid class="main-layout d-flex">
-		<nav id="nav" class="d-flex flex-column align-center">
-			<div class="main-layout__logo">LOGO</div>
-			<div class="main-layout__teacher">
+	<div fluid class="main-layout">
+		<nav class="sidebar d-flex flex-column align-center">
+			<div class="sidebar__logo">LOGO</div>
+			<div class="sidebar__teacher">
 				<h3>Марья Ивановна</h3>
 			</div>
 			<div class="main-menu d-flex flex-column align-center mb-auto">
@@ -19,7 +19,7 @@
 				</router-link>
 			</div>
 			<div
-				class="main-layout__help d-flex flex-column align-center justify-space-between"
+				class="sidebar__help d-flex flex-column align-center justify-space-between"
 			>
 				<img src="" alt="" />
 				<div class="d-flex align-center flex-column">
@@ -28,14 +28,14 @@
 				</div>
 			</div>
 		</nav>
-		<header class="main-layout__header">
+		<header class="header">
 			<nav class="d-flex justify-end">
 				<div class="">dd</div>
 			</nav>
 		</header>
-		<div class="main-layout__content">
+		<section class="content">
 			<router-view />
-		</div>
+		</section>
 	</div>
 </template>
 

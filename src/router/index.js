@@ -14,7 +14,7 @@ const routes = [
 	{
 		path: "/sign-in",
 		name: "signIn",
-		meta: { layout: "auth" },
+		meta: { layout: "main" },
 		component: () => import("../views/Auth/SignIn"),
 	},
 	{

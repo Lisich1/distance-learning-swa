@@ -9,6 +9,7 @@ import "firebase/database";
 import { firebaseConfig } from "../firebase.config";
 import "vue-search-select/dist/VueSearchSelect.css";
 import "vue-search-select";
+
 Vue.config.productionTip = false;
 firebase.initializeApp(firebaseConfig);
 let app;

@@ -28,9 +28,18 @@
 				</div>
 			</div>
 		</nav>
-		<header class="header">
-			<nav class="d-flex justify-end">
-				<div class="">dd</div>
+		<header class="header d-flex align-center">
+			<nav class="d-flex align-center ml-auto">
+				<div class="header__notify d-flex align-center justify-center">
+					<img src="@/assets/icons/bell.svg" alt="Опповещения" />
+				</div>
+				<router-link
+					to="/"
+					class="header__auth d-flex align-center justify-space-between"
+				>
+					<img src="@/assets/icons/logout.svg" alt="Выйти" />
+					<span>Выйти</span>
+				</router-link>
 			</nav>
 		</header>
 		<section class="content">

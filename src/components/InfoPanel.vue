@@ -1,6 +1,6 @@
 <template>
-	<div class="success-panel">
-		<img src="@/assets/tick-square.svg" alt="success" />
+	<div class="info-panel">
+		<img :src="iconUrl" alt="" />
 		<span>
 			<slot></slot>
 		</span>
@@ -9,12 +9,24 @@
 
 <script>
 export default {
-	name: "SuccessPanel",
+	name: "InfoPanel",
+	data() {
+		// один из способов динамичемк подгружать иконки
+		return { iconUrl: require("@/assets/icons/" + this.icon + ".svg") };
+	},
+	props: {
+		// success, danger
+		icon: {
+			type: String,
+			default: "success",
+			required: false,
+		},
+	},
 };
 </script>
 
 <style lang="scss">
-.success-panel {
+.info-panel {
 	display: flex;
 	align-items: center;
 	justify-content: center;

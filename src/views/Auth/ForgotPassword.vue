@@ -1,8 +1,8 @@
 <template>
 	<div class="forgot-password">
-		<SuccessPanel v-if="isSent"
+		<InfoPanel v-if="isSent"
 			>В течении минуты на ваш e-mail придет письмо для подтверждения
-			электронного адреса, следуйте инструкции в письме</SuccessPanel
+			электронного адреса, следуйте инструкции в письме</InfoPanel
 		>
 		<v-form v-else class="forgot-password__form" v-model="form">
 			<h2>Восстановление пароля</h2>
@@ -29,11 +29,11 @@
 
 
 <script>
-import SuccessPanel from "@/components/SuccessPanel";
+import InfoPanel from "@/components/InfoPanel";
 import Button from "@/components/Button/Button";
 export default {
 	components: {
-		SuccessPanel,
+		InfoPanel,
 		Button,
 	},
 	data: () => ({

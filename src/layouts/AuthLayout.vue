@@ -1,10 +1,10 @@
 <template>
 	<div class="auth-layout">
-		<header class="auth-layout__logo d-flex justify-end align-center">
-			<div>logo</div>
+		<header class="auth-layout__logo">
+			<div><img src="@/assets/images/logo.svg" /></div>
 		</header>
 		<div class="auth-layout__image"></div>
-		<div class="auth-layout__content d-flex justify-end align-center">
+		<div class="auth-layout__content">
 			<router-view />
 		</div>
 		<footer class="auth-layout__footer"></footer>
@@ -30,6 +30,7 @@ export default {
 
 	&__logo {
 		grid-area: logo;
+		place-self: center end;
 	}
 	&__image {
 		grid-area: image;
@@ -40,6 +41,7 @@ export default {
 	}
 	&__content {
 		grid-area: content;
+		place-self: center end;
 	}
 	&__footer {
 		grid-area: footer;

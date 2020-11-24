@@ -1,7 +1,9 @@
 <template>
 	<div fluid class="main-layout">
 		<nav class="sidebar d-flex flex-column align-center">
-			<div class="sidebar__logo">LOGO</div>
+			<div class="sidebar__logo">
+				<img src="@/assets/images/logo.svg" />
+			</div>
 			<div class="sidebar__teacher">
 				<h3>Марья Ивановна</h3>
 			</div>
@@ -74,7 +76,7 @@ export default {
 			{
 				title: "Журнал",
 				route: "/teacher-book",
-				icon: "calendar",
+				icon: "teacher-book",
 				exact: true,
 			},
 			{
@@ -91,6 +93,7 @@ export default {
 	}),
 	methods: {
 		//TODO вынести метод в отдельный модуль
+		// один из способов динамичемк подгружать иконки
 		getIconUrl(iconName) {
 			if (iconName) {
 				var images = require.context("@/assets/icons", false, /\.svg$/);

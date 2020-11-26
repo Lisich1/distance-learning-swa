@@ -1,0 +1,126 @@
+.home {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 50px 430px 1fr 1fr 1fr 92px;
+	gap: 0px 0px;
+	grid-template-areas:
+		"nav nav nav"
+		"header header header "
+		"for-whom for-whom for-whom "
+		"about about about "
+		"advantages advantages advantages "
+		"footer footer footer";
+	width: 100%;
+	h3 {
+		font-size: 24px;
+		line-height: 28px;
+		font-style: normal;
+		font-weight: normal;
+		text-align: center;
+	}
+}
+
+.nav {
+	grid-area: nav;
+	background-color: #c4c4c4;
+	a {
+		place-self: center end;
+		text-decoration: none;
+		color: black;
+	}
+
+	&__button-signin {
+		width: 94px;
+		height: 32px;
+		background-color: #ffffff;
+		border-radius: 6px;
+		margin-right: 46px;
+	}
+}
+
+.header {
+	display: grid;
+	grid-template-columns: 1fr 1388px 1fr;
+	grid-template-rows: 1fr;
+	gap: 0px 0px;
+	grid-template-areas: ". header__title .";
+	grid-area: header;
+
+	background: #7b92e3;
+	&__title {
+		align-self: center;
+		grid-area: header__title;
+
+		h2 {
+			font-size: 24px;
+			line-height: 28px;
+			width: 490px;
+		}
+	}
+}
+
+.for-whom {
+	grid-area: for-whom;
+	padding: 72px 0;
+	place-self: center center;
+	div {
+		margin: 0 19.5px;
+	}
+}
+
+.about {
+	display: grid;
+	grid-template-columns: 1fr 1388px 1fr;
+	grid-template-rows: 78px 1fr;
+	grid-template-areas:
+		". about__title ."
+		". about__content .";
+	grid-area: about;
+	&__title {
+		grid-area: about__title;
+		align-self: center;
+	}
+
+	&__content {
+		grid-area: about__content;
+		span {
+			width: 490px;
+		}
+	}
+	&__image {
+		width: 460px;
+		height: 259px;
+
+		background: #7b92e3;
+	}
+}
+
+.advantages {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		". advantages__header ."
+		". advantages__content .";
+	grid-area: advantages;
+	&__title {
+		grid-area: advantages__header;
+	}
+
+	&__content {
+		grid-area: advantages__content;
+	}
+}
+
+.footer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: ". footer__content .";
+	grid-area: footer;
+	background-color: #c4c4c4;
+	&__content {
+		grid-area: footer__content;
+	}
+}

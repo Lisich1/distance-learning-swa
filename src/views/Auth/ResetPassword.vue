@@ -1,5 +1,5 @@
 <template>
-	<div class="reset-password">
+	<panel>
 		<v-form class="reset-password__form" v-model="form">
 			<h2>Восстановление пароля</h2>
 			<div class="input reset-password__password">
@@ -30,7 +30,7 @@
 				Восстановить</Button
 			>
 		</v-form>
-	</div>
+	</panel>
 </template>
 
 <script>

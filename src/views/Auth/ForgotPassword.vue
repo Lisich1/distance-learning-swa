@@ -4,26 +4,29 @@
 			>В течении минуты на ваш e-mail придет письмо для подтверждения
 			электронного адреса, следуйте инструкции в письме</InfoPanel
 		>
-		<v-form v-else class="forgot-password__form" v-model="form">
-			<h2>Восстановление пароля</h2>
-			<div class="input forgot-password__email">
-				<v-text-field
-					class="input"
-					type="text"
-					label="E-mail"
-					:rules="[rules.required]"
-					:messages="message"
-					outlined
-					dense
-				/>
-			</div>
-			<Button
-				class="forgot-password__button"
-				:disabled="!form"
-				@click="sendEmail"
-				>Восстановить</Button
-			>
-		</v-form>
+
+		<panel v-else>
+			<v-form class="d-flex align-center flex-column" v-model="form">
+				<h2>Восстановление пароля</h2>
+				<div class="input forgot-password__email">
+					<v-text-field
+						class="input"
+						type="text"
+						label="E-mail"
+						:rules="[rules.required]"
+						:messages="message"
+						outlined
+						dense
+					/>
+				</div>
+				<Button
+					class="forgot-password__button"
+					:disabled="!form"
+					@click="sendEmail"
+					>Восстановить</Button
+				>
+			</v-form>
+		</panel>
 	</div>
 </template>
 

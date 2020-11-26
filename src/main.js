@@ -9,7 +9,12 @@ import "firebase/database";
 import { firebaseConfig } from "../firebase.config";
 import "vue-search-select/dist/VueSearchSelect.css";
 import "vue-search-select";
+import Panel from "./components/Panel.vue";
+import Button from "./components//Button/Button.vue";
 
+// Глобальная регистрация компонентов
+Vue.component("panel", Panel);
+Vue.component("Button", Button);
 Vue.config.productionTip = false;
 firebase.initializeApp(firebaseConfig);
 let app;

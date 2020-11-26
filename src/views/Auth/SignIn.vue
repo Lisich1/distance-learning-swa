@@ -1,5 +1,5 @@
 <template>
-	<div class="sign-in">
+	<panel class="sign-in">
 		<v-form ref="form" v-model="form" class="sign-in__form">
 			<h2>Вход в систему</h2>
 			<div class="input sign-in__login">
@@ -39,7 +39,7 @@
 				Войти</Button
 			>
 		</v-form>
-	</div>
+	</panel>
 </template>
 
 <script>

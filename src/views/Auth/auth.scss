@@ -8,11 +8,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-		width: 370px;
-		height: 298px;
-		padding-top: 56px;
-		padding-bottom: 80px;
-		box-shadow: 0px 22px 44px -15px rgba(0, 0, 0, 0.25);
+
 		a {
 			text-decoration: none;
 		}
@@ -26,9 +22,6 @@
 	}
 }
 .reset-password {
-	&__form {
-		height: 355px;
-	}
 	&__password {
 		margin-top: 26px;
 	}
@@ -37,11 +30,6 @@
 	}
 }
 .sign-in {
-	&__form {
-		justify-content: start;
-		height: 405px;
-		padding-bottom: 66px;
-	}
 	&__login {
 		margin-top: 26px;
 	}

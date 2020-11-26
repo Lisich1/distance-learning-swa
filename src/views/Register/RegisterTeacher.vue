@@ -1,6 +1,6 @@
 <template>
-	<div class="register-teacher">
-		<v-form class="register-teacher__form" v-model="form">
+	<panel
+		><v-form class="d-flex align-center flex-column" v-model="form">
 			<h2>Регистрация учителя</h2>
 			<div class="input register-teacher__fio">
 				<v-text-field
@@ -39,13 +39,12 @@
 			>
 				Получить логин и пароль</Button
 			>
-		</v-form>
-	</div>
+		</v-form></panel
+	>
 </template>
 //TODO сделать стрелочку селекту
 
 <script>
-import Button from "@/components/Button/Button";
 import { ModelSelect } from "vue-search-select";
 
 export default {
@@ -82,23 +81,12 @@ export default {
 		},
 	},
 	components: {
-		Button,
 		ModelSelect,
 	},
 };
 </script>
 <style lang="scss">
 .register-teacher {
-	&__form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 369px;
-		height: 531px;
-		padding-top: 56px;
-		padding-bottom: 80px;
-		box-shadow: 0px 22px 44px -15px rgba(0, 0, 0, 0.25);
-	}
 	&__fio {
 		margin-top: 25px;
 	}

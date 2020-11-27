@@ -16,7 +16,7 @@
 				<v-text-field
 					:type="isVisible ? 'text' : 'password'"
 					label="Пароль"
-					:rules="[rules.required, rules.length(6)]"
+					:rules="[rules.required, rules.length(4)]"
 					v-model="password"
 					:append-icon="isVisible ? 'mdi-eye' : 'mdi-eye-off'"
 					@click:append="() => (isVisible = !isVisible)"
@@ -33,8 +33,8 @@
 			<Button
 				class="sign-in__button"
 				:disabled="!form"
-				@click="auth"
 				:loading="isLoading"
+				@click="auth"
 			>
 				Войти</Button
 			>
@@ -48,8 +48,8 @@ import Button from "@/components/Button/Button";
 export default {
 	data: () => ({
 		form: false,
-		login: undefined,
-		password: undefined,
+		login: "",
+		password: "",
 		isLoading: false,
 		isVisible: false,
 		rules: {
@@ -61,6 +61,14 @@ export default {
 	methods: {
 		auth() {
 			this.isLoading = true;
+			let email = this.email;
+			let password = this.password;
+			this.$store
+				.dispatch("login", { email, password })
+				.then(() => {
+					this.$router.push("/");
+				})
+				.catch((err) => console.log(err));
 		},
 	},
 	components: {

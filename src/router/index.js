@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
+import store from "../store/index";
 Vue.use(VueRouter);
 
 const routes = [
@@ -33,7 +33,7 @@ const routes = [
 	{
 		path: "/register-teacher",
 		name: "RegisterTeacher",
-		meta: { layout: "main" },
+		meta: { layout: "main", requiresAuth: true },
 
 		component: () => import("../views/Register/RegisterTeacher.vue"),
 	},
@@ -43,5 +43,15 @@ const router = new VueRouter({
 	mode: "history",
 	routes,
 });
-
+router.beforeEach((to, from, next) => {
+	if (to.matched.some((record) => record.meta.requiresAuth)) {
+		if (store.getters.isLoggedIn) {
+			next();
+			return;
+		}
+		next("/sign-in");
+	} else {
+		next();
+	}
+});
 export default router;

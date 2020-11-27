@@ -1,46 +1,53 @@
 <template>
-	<panel
-		><v-form class="d-flex align-center flex-column" v-model="form">
-			<h2>Регистрация учителя</h2>
-			<div class="input register-teacher__fio">
-				<v-text-field
-					label="ФИО преподавателя"
-					:rules="[rules.required]"
-					outlined
-					dense
-				/>
-			</div>
-			<model-select
-				class="register-teacher__select search-select"
-				:options="options"
-				v-model="item"
-				placeholder="Предмет"
-			>
-			</model-select>
-			<model-select
-				class="register-teacher__select search-select"
-				:options="options"
-				v-model="item"
-				placeholder="Роль"
-			>
-			</model-select>
-			<model-select
-				class="register-teacher__select search-select"
-				:options="options"
-				v-model="item"
-				placeholder="Класс"
-			>
-			</model-select>
+	<v-dialog v-model="dialog" width="fit-content">
+		<template v-slot:activator="{ on, attrs }">
+			<v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
+				Click Me
+			</v-btn>
+		</template>
 
-			<Button
-				class="register-teacher__button"
-				:disabled="!form"
-				@click="createTeacher"
-			>
-				Получить логин и пароль</Button
-			>
-		</v-form></panel
-	>
+		<panel>
+			<v-form class="d-flex align-center flex-column" v-model="form">
+				<h2>Регистрация учителя</h2>
+				<div class="input register-teacher__fio">
+					<v-text-field
+						label="ФИО преподавателя"
+						:rules="[rules.required]"
+						dense
+					/>
+				</div>
+				<model-select
+					class="register-teacher__select search-select"
+					:options="options"
+					v-model="item"
+					placeholder="Предмет"
+				>
+				</model-select>
+				<model-select
+					class="register-teacher__select search-select"
+					:options="options"
+					v-model="item"
+					placeholder="Роль"
+				>
+				</model-select>
+				<model-select
+					class="register-teacher__select search-select"
+					:options="options"
+					v-model="item"
+					placeholder="Класс"
+				>
+				</model-select>
+
+				<Button
+					class="register-teacher__button"
+					:disabled="!form"
+					@click="dialog = false"
+				>
+					Получить логин и пароль</Button
+				>
+			</v-form>
+		</panel>
+	</v-dialog>
 </template>
 //TODO сделать стрелочку селекту
 
@@ -50,6 +57,7 @@ import { ModelSelect } from "vue-search-select";
 export default {
 	data() {
 		return {
+			dialog: false,
 			item: null,
 			form: false,
 			success: false,

@@ -3,6 +3,7 @@ import App from "./App.vue";
 import vuetify from "./plugins/vuetify";
 import router from "./router";
 import store from "./store";
+import Axios from "axios";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
@@ -12,6 +13,12 @@ import "vue-search-select";
 import Panel from "./components/Panel.vue";
 import Button from "./components//Button/Button.vue";
 
+// Для авторизации и реквестов
+Vue.prototype.$http = Axios;
+const token = localStorage.getItem("token");
+if (token) {
+	Vue.prototype.$http.defaults.headers.common["Authorization"] = token;
+}
 // Глобальная регистрация компонентов
 Vue.component("panel", Panel);
 Vue.component("Button", Button);

@@ -1,9 +1,15 @@
 <template>
 	<div class="home">
 		<div class="nav d-flex align-center justify-end">
-			<router-link to="/sign-in">
+			<router-link to="/sign-in" v-if="!isLoggedIn">
 				<div class="nav__button-signin d-flex align-center justify-center">
 					Войти
+				</div>
+			</router-link>
+			<!-- TODO поменять на личный кабинет когда появится -->
+			<router-link to="/lk" v-else>
+				<div class="nav__button-signin d-flex align-center justify-center">
+					Личный кабинет
 				</div>
 			</router-link>
 		</div>
@@ -42,6 +48,7 @@
 					<span>Остались вопросы?</span>
 					<router-link to="#">Техническая поддержка</router-link>
 				</div>
+
 				<div class="footer__social ml-auto">
 					<v-icon>mdi-instagram</v-icon>
 					<v-icon>mdi-facebook</v-icon>
@@ -56,6 +63,12 @@
 <script>
 import WhomPanel from "@/components/WhomPanel";
 export default {
+	data: () => ({}),
+	computed: {
+		isLoggedIn() {
+			return this.$store.getters.isLoggedIn;
+		},
+	},
 	components: {
 		WhomPanel,
 	},

@@ -61,14 +61,15 @@ export default {
 	methods: {
 		auth() {
 			this.isLoading = true;
-			let email = this.email;
+			let username = this.login;
 			let password = this.password;
 			this.$store
-				.dispatch("login", { email, password })
+				.dispatch("login", { username, password })
 				.then(() => {
-					this.$router.push("/");
+					this.$router.push("/lk");
 				})
-				.catch((err) => console.log(err));
+				.catch((err) => console.log(err))
+				.finally(() => (this.isLoading = false));
 		},
 	},
 	components: {

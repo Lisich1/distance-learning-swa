@@ -30,18 +30,18 @@
 				</div>
 			</div>
 		</nav>
-		<header class="header d-flex align-center">
+		<header class="main-header d-flex align-center">
 			<nav class="d-flex align-center ml-auto">
-				<div class="header__notify d-flex align-center justify-center">
+				<div class="main-header__notify d-flex align-center justify-center">
 					<img src="@/assets/icons/bell.svg" alt="Опповещения" />
 				</div>
-				<router-link
-					to="/"
-					class="header__auth d-flex align-center justify-space-between"
+				<a
+					class="main-header__auth d-flex align-center justify-space-between"
+					@click="logout"
 				>
 					<img src="@/assets/icons/logout.svg" alt="Выйти" />
 					<span>Выйти</span>
-				</router-link>
+				</a>
 			</nav>
 		</header>
 		<section class="content">
@@ -93,12 +93,17 @@ export default {
 	}),
 	methods: {
 		//TODO вынести метод в отдельный модуль
-		// один из способов динамичемк подгружать иконки
+		// один из способов динамичеcкb подгружать иконки
 		getIconUrl(iconName) {
 			if (iconName) {
 				var images = require.context("@/assets/icons", false, /\.svg$/);
 				return images("./" + iconName + ".svg");
 			}
+		},
+		logout() {
+			this.$store.dispatch("logout").then(() => {
+				this.$router.push("/sign-in");
+			});
 		},
 	},
 };

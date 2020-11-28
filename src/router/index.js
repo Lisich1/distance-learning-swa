@@ -44,14 +44,33 @@ const router = new VueRouter({
 	routes,
 });
 router.beforeEach((to, from, next) => {
+	console.log(to.fullPath);
+	console.log("Токен " + store.getters.token);
+	console.log("Logged in: " + store.getters.isLoggedIn);
+	// Если авторизован и хочет зайти на страницу авторизации
+	// то не разрешать это сделать
+	if (
+		to.matched.some(
+			(record) => record.path === "/sign-in" && store.getters.isLoggedIn
+		)
+	) {
+		next(false);
+		return;
+	}
+
+	// Если страница требует авторизации
+	// и пользователь не авторизован то перенаправить на авторизацию
 	if (to.matched.some((record) => record.meta.requiresAuth)) {
-		if (store.getters.isLoggedIn) {
-			next();
-			return;
-		}
-		next("/sign-in");
+		if (!store.getters.isLoggedIn) {
+			next({
+				path: "/sign-in",
+
+				query: { redirect: to.fullPath },
+			});
+		} else next();
 	} else {
 		next();
 	}
 });
+
 export default router;

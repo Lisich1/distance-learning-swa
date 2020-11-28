@@ -3,7 +3,7 @@
 	grid-template-rows: 98px 1fr;
 	grid-template-columns: 250px 1fr;
 	grid-template-areas:
-		"sidebar header"
+		"sidebar main-header"
 		"sidebar section";
 	height: 100vh;
 	width: 100%;
@@ -59,8 +59,8 @@
 			}
 		}
 	}
-	.header {
-		grid-area: header;
+	.main-header {
+		grid-area: main-header;
 		&__notify {
 			background: #c4c4c4;
 			border-radius: 10px;

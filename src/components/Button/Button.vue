@@ -5,7 +5,7 @@
 		:disabled="disabled"
 		:loading="loading"
 		@click="$emit('click')"
-		color="#c4c4c4"
+		color="#7A76FF"
 		small
 	>
 		<slot></slot

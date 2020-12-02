@@ -1,9 +1,12 @@
 <template>
 	<div class="auth-layout">
 		<header class="auth-layout__logo">
-			<div><img src="@/assets/images/logo.svg" /></div>
+			<img src="@/assets/images/logo-purple.svg" />
 		</header>
-		<div class="auth-layout__image"></div>
+		<div class="auth-layout__image">
+			<img v-if="$route.name == 'signIn'" src="@/assets/images/auth.svg" />
+			<img v-else src="@/assets/images/reset-password.svg" />
+		</div>
 		<div class="auth-layout__content">
 			<router-view />
 		</div>
@@ -18,26 +21,24 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/scss/colors.scss";
 .auth-layout {
 	display: grid;
 	grid-template-rows: 1fr 1fr 1fr;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-areas:
-		"logo logo"
-		"image content"
-		"footer footer";
+		". . logo ."
+		". image content ."
+		"footer footer footer footer";
 	height: 100vh;
 
 	&__logo {
+		place-self: end end;
 		grid-area: logo;
-		place-self: center end;
 	}
 	&__image {
 		grid-area: image;
-		width: 558px;
-		height: 693px;
-
-		background: #7b92e3;
+		place-self: center;
 	}
 	&__content {
 		grid-area: content;

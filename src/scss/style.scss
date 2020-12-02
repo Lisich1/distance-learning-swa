@@ -1,11 +1,19 @@
 // For search select
 // @import "vue-select/src/scss/vue-select.scss";
-
-h2 {
-	font-size: 22px;
-	line-height: 26px;
-	font-style: normal;
+body {
 	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+}
+h1 {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+}
+h2 {
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
 }
 span {
 	font-style: normal;
@@ -13,13 +21,16 @@ span {
 	font-size: 14px;
 	line-height: 17px;
 }
+small {
+	font-size: 12px;
+	line-height: 14px;
+}
 .input {
 	width: 306px;
 }
 .search-select {
 	background-color: #e8e8e8 !important;
 	width: 306px !important;
-
 }
 //// Временно
 

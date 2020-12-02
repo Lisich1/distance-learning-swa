@@ -33,9 +33,16 @@ const routes = [
 	{
 		path: "/register-teacher",
 		name: "RegisterTeacher",
-		meta: { layout: "main", requiresAuth: true },
+		meta: { layout: "main", requiresAuth: true, role: "admin" },
 
-		component: () => import("../views/Register/RegisterTeacher.vue"),
+		component: () => import("../views/Admin/RegisterTeacher.vue"),
+	},
+	{
+		path: "/my-class",
+		name: "MyClass",
+		meta: { layout: "main", requiresAuth: true, role: "classTeacher" },
+
+		component: () => import("../views/ClassroomTeacher/MyClass.vue"),
 	},
 ];
 
@@ -44,9 +51,10 @@ const router = new VueRouter({
 	routes,
 });
 router.beforeEach((to, from, next) => {
-	console.log(to.fullPath);
-	console.log("Токен " + store.getters.token);
-	console.log("Logged in: " + store.getters.isLoggedIn);
+	// console.log(to.fullPath);
+	// console.log("Токен " + store.getters.token);
+	// console.log("Logged in: " + store.getters.isLoggedIn);
+
 	// Если авторизован и хочет зайти на страницу авторизации
 	// то не разрешать это сделать
 	if (

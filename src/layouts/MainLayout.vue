@@ -45,7 +45,7 @@
 			</nav>
 		</header>
 		<section class="content">
-			<router-view />
+			<div class="content__center"><router-view /></div>
 		</section>
 	</div>
 </template>

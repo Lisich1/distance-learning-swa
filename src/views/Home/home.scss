@@ -30,8 +30,10 @@
 	}
 
 	&__button-signin {
-		width: 94px;
+		width: max-content;
 		height: 32px;
+		padding-left: 26px;
+		padding-right: 26px;
 		background-color: #ffffff;
 		border-radius: 6px;
 		margin-right: 46px;

@@ -10,6 +10,7 @@
 					type="text"
 					outlined
 					dense
+					v-on:change="onChange"
 				></v-text-field>
 			</div>
 			<div class="input sign-in__password">
@@ -22,6 +23,8 @@
 					@click:append="() => (isVisible = !isVisible)"
 					outlined
 					dense
+					:messages="passwordMessage"
+					v-on:change="onChange"
 				/>
 			</div>
 			<span
@@ -49,7 +52,9 @@ export default {
 	data: () => ({
 		form: false,
 		login: "",
+		loginMessage: "",
 		password: "",
+		passwordMessage: "",
 		isLoading: false,
 		isVisible: false,
 		rules: {
@@ -66,10 +71,20 @@ export default {
 			this.$store
 				.dispatch("login", { username, password })
 				.then(() => {
-					this.$router.push("/lk");
+					this.$router.push(this.$route.query.redirect || "/lk");
 				})
-				.catch((err) => console.log(err))
+				.catch((err) => {
+					switch (err.response.status) {
+						case 400: {
+							this.passwordMessage = "Неверный логин или пароль";
+						}
+					}
+				})
 				.finally(() => (this.isLoading = false));
+		},
+		onChange() {
+			this.passwordMessage = "";
+			this.loginMessage = "";
 		},
 	},
 	components: {

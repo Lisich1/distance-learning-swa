@@ -19,6 +19,7 @@ export default {
 
 		created: function () {
 			// Если токе просрочен
+			// Не проверял на роботоспособность
 			this.$http.interceptors.response.use(undefined, function (err) {
 				return new Promise(function (resolve, reject) {
 					if (
@@ -26,11 +27,14 @@ export default {
 						err.config &&
 						!err.config.__isRetryRequest
 					) {
-						this.$store.dispatch("logout");
+						this.$store.dispatch("logout").then(() => resolve());
+					} else {
+						reject(err);
+						throw err;
 					}
-					throw err;
 				});
 			});
+			return true;
 		},
 	},
 	components: {
@@ -41,6 +45,6 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "./assets/style.scss";
+@import "./scss/style.scss";
 @import "./views/Auth/auth.scss";
 </style>

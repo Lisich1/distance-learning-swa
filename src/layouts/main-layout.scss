@@ -1,89 +1,94 @@
+@import "@/scss/colors.scss";
 .main-layout {
-	display: grid;
-	grid-template-rows: 98px 1fr;
-	grid-template-columns: 250px 1fr;
-	grid-template-areas:
-		"sidebar main-header"
-		"sidebar content";
-	height: 100vh;
-	width: 100%;
-	.sidebar {
-		grid-area: sidebar;
-		background: #c4c4c4;
-		border-radius: 0px 13px 13px 0px;
-		padding: 44px 24px 44px 23px;
-		&__logo {
-		}
-		&__teacher {
-			margin-top: 50px;
-			margin-bottom: 50px;
-			h3 {
-				font-size: 16px;
-				line-height: 19px;
-			}
-		}
-		.main-menu {
-			&__link {
-				width: 203px;
-				height: 50px;
-				text-decoration: none;
-				font-style: normal;
-				font-weight: normal;
-				font-size: 16px;
-				line-height: 19px;
-				color: #ffffff;
-				img {
-					margin-left: 25.5px;
-					margin-right: 24.5px;
-				}
-			}
-			&__link-active {
-				background: #777777;
-				border-radius: 13px;
-			}
-		}
-		&__help {
-			width: 169px;
-			height: 142px;
-			background-color: #f2f2f2;
-			border-radius: 13px;
-			padding-top: 21px;
-			padding-bottom: 14px;
-			span {
-				font-size: 12px;
-				line-height: 14px;
-			}
-			a {
-				text-decoration: none;
-				font-size: 12px;
-				line-height: 14px;
-				color: #7b92e3;
-			}
-		}
-	}
-	.main-header {
-		grid-area: main-header;
-		&__notify {
-			background: #c4c4c4;
-			border-radius: 10px;
-			width: 40px;
-			height: 40px;
-		}
-		&__auth {
-			width: 72px;
-			margin-left: 30px;
-			margin-right: 48px;
-			text-decoration: none;
-			color: #000000;
-		}
-	}
-	.content {
-		grid-area: content;
-		display: grid;
-		grid-template-rows: 1fr;
-		grid-template-columns: 1fr minmax(min-content, 1146px) 1fr;
-		&__center {
-			grid-column: 2/ 3;
-		}
-	}
+    display: grid;
+    grid-template-rows: 98px 1fr;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+        "sidebar main-header"
+        "sidebar content";
+    height: 100vh;
+    width: 100%;
+    .sidebar {
+        grid-area: sidebar;
+        background: #ffffff;
+        border-radius: 0px 13px 13px 0px;
+        padding: 44px 24px 44px 23px;
+        &__logo {
+        }
+        &__teacher {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            h3 {
+                font-size: 16px;
+                line-height: 19px;
+            }
+        }
+        .main-menu {
+            &__link {
+                width: 203px;
+                height: 50px;
+                text-decoration: none;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 19px;
+                color: $black;
+            }
+            &__icon {
+                margin-left: 25.5px;
+                margin-right: 24.5px;
+            }
+            &__link-active {
+                background: $purple;
+                border-radius: 13px;
+                color: #ffffff;
+            }
+        }
+        &__help {
+            width: 169px;
+            height: 142px;
+            background-color: #f2f2f2;
+            border-radius: 13px;
+            padding-top: 21px;
+            padding-bottom: 14px;
+            span {
+                font-size: 12px;
+                line-height: 14px;
+            }
+            a {
+                text-decoration: none;
+                font-size: 12px;
+                line-height: 14px;
+                color: #7b92e3;
+            }
+        }
+    }
+    .main-header {
+        grid-area: main-header;
+        background-color: $white;
+
+        &__notify {
+            background: #c4c4c4;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+        }
+        &__auth {
+            width: 72px;
+            margin-left: 30px;
+            margin-right: 48px;
+            text-decoration: none;
+            color: #000000;
+        }
+    }
+    .content {
+        grid-area: content;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr minmax(min-content, 1146px) 1fr;
+        background-color: $white;
+        &__center {
+            grid-column: 2/ 3;
+        }
+    }
 }

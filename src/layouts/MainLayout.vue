@@ -2,7 +2,7 @@
 	<div fluid class="main-layout">
 		<nav class="sidebar d-flex flex-column align-center">
 			<div class="sidebar__logo">
-				<img src="@/assets/images/logo.svg" />
+				<img src="@/assets/images/logo-purple.svg" />
 			</div>
 			<div class="sidebar__teacher">
 				<h3>Марья Ивановна</h3>
@@ -16,7 +16,9 @@
 					:to="link.route"
 					:exact="link.exact"
 				>
-					<img :src="getIconUrl(link.icon)" />
+					<icon-base :icon-name="link.icon" class="main-menu__icon">
+						<component v-bind:is="link.icon" />
+					</icon-base>
 					<div>{{ link.title }}</div>
 				</router-link>
 			</div>
@@ -33,7 +35,7 @@
 		<header class="main-header d-flex align-center">
 			<nav class="d-flex align-center ml-auto">
 				<div class="main-header__notify d-flex align-center justify-center">
-					<img src="@/assets/icons/bell.svg" alt="Опповещения" />
+					<icon-base icon-name="Оповещения"><bell /></icon-base>
 				</div>
 				<a
 					class="main-header__auth d-flex align-center justify-space-between"
@@ -51,8 +53,22 @@
 </template>
 
 <script>
+import Calendar from "../components/Icons/IconCalendar";
+import Message from "../components/Icons/IconMessage";
+import Study from "../components/Icons/IconStudy";
+import TeacherBook from "../components/Icons/IconTeacherBook";
+import Settings from "../components/Icons/IconSettings";
+import Bell from "../components/Icons/IconBell";
 export default {
 	name: "main-layout",
+	components: {
+		Calendar,
+		Message,
+		Study,
+		TeacherBook,
+		Settings,
+		Bell,
+	},
 	data: () => ({
 		links: [
 			{
@@ -76,7 +92,7 @@ export default {
 			{
 				title: "Журнал",
 				route: "/teacher-book",
-				icon: "teacher-book",
+				icon: "teacherBook",
 				exact: true,
 			},
 			{

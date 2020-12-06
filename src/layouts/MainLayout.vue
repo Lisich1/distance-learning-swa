@@ -1,5 +1,6 @@
 <template>
 	<div fluid class="main-layout">
+		
 		<nav class="sidebar d-flex flex-column align-center">
 			<div class="sidebar__logo">
 				<img src="@/assets/images/logo-purple.svg" />

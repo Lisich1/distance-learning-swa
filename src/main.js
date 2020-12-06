@@ -10,6 +10,7 @@ import "vue-search-select";
 import ModalPanel from "./components/ModalPanel/ModalPanel.vue";
 import Button from "./components/Button/Button.vue";
 import IconBase from "./components/Icons/IconBase.vue";
+import Loader from "@/components/Loader";
 
 // Для авторизации и реквестов
 Vue.prototype.$http = Axios;
@@ -21,6 +22,7 @@ if (token) {
 Vue.component("ModalPanel", ModalPanel);
 Vue.component("Button", Button);
 Vue.component("IconBase", IconBase);
+Vue.component("Loader", Loader);
 Vue.config.productionTip = false;
 
 let app;

@@ -96,6 +96,8 @@ export default {
 		},
 		modalAction(data) {
 			this.dialog = false;
+			this.$store.dispatch("toggleLoading");
+			console.log(this.$store.state.isLoading);
 			console.log(data);
 			switch (this.action) {
 				case "add": {

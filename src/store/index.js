@@ -4,11 +4,21 @@ import authModule from "./auth";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-	modules: {
-		auth: authModule,
-	},
-	state: {},
-	getters: {},
-	mutations: {},
-	actions: {},
+    modules: {
+        auth: authModule,
+    },
+    state: {
+        isLoading: false,
+    },
+    getters: {},
+    mutations: {
+        toggleLoading(state) {
+            state.isLoading = !state.isLoading;
+        },
+    },
+    actions: {
+        toggleLoading(context) {
+            context.commit("toggleLoading");
+        },
+    },
 });

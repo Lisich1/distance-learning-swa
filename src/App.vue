@@ -1,5 +1,6 @@
 <template>
 	<v-app id="app">
+		<loader />
 		<component :is="layout">
 			<router-view />
 		</component>

@@ -35,13 +35,21 @@
 		<header class="main-header d-flex align-center">
 			<nav class="d-flex align-center ml-auto">
 				<div class="main-header__notify d-flex align-center justify-center">
-					<icon-base icon-name="Оповещения"><bell /></icon-base>
+					<icon-base
+						icon-name="Оповещения"
+						width="18"
+						height="20"
+						icon-color="#ffffff"
+						><icon-bell
+					/></icon-base>
 				</div>
 				<a
 					class="main-header__auth d-flex align-center justify-space-between"
 					@click="logout"
 				>
-					<img src="@/assets/icons/logout.svg" alt="Выйти" />
+					<icon-base icon-name="logout" width="24" height="24">
+						<icon-logout />
+					</icon-base>
 					<span>Выйти</span>
 				</a>
 			</nav>
@@ -58,7 +66,8 @@ import Message from "../components/Icons/IconMessage";
 import Study from "../components/Icons/IconStudy";
 import TeacherBook from "../components/Icons/IconTeacherBook";
 import Settings from "../components/Icons/IconSettings";
-import Bell from "../components/Icons/IconBell";
+import IconBell from "../components/Icons/IconBell";
+import IconLogout from "../components/Icons/IconLogout";
 export default {
 	name: "main-layout",
 	components: {
@@ -67,7 +76,8 @@ export default {
 		Study,
 		TeacherBook,
 		Settings,
-		Bell,
+		IconBell,
+		IconLogout,
 	},
 	data: () => ({
 		links: [
@@ -102,6 +112,7 @@ export default {
 				exact: true,
 			},
 			{ title: "Регистрация учит", route: "/register-teacher" },
+			{ title: "Мой класс", route: "/my-class" },
 			{ title: "Забыли пароль?", route: "/forgot-password" },
 			{ title: "Восстановление пароля", route: "/reset-password" },
 			{ title: "Авторизация", route: "/sign-in" },

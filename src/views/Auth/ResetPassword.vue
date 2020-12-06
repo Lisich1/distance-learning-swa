@@ -1,9 +1,16 @@
 <template>
-	<panel>
-		<v-form class="reset-password__form" v-model="form">
-			<h2>Восстановление пароля</h2>
-			<div class="input reset-password__password">
+	<div class="auth-panel">
+		<v-form
+			class="reset-password__form"
+			v-model="form"
+			@submit.prevent="resetPassword"
+		>
+			<div class="auth-panel__header">
+				<h2>Восстановление пароля</h2>
+			</div>
+			<div class="auth-panel__inputs">
 				<v-text-field
+					class="auth-panel__input"
 					:type="isVisible ? 'text' : 'password'"
 					label="Новый пароль"
 					:rules="[rules.required, rules.length(6)]"
@@ -13,9 +20,8 @@
 					outlined
 					dense
 				/>
-			</div>
-			<div class="input reset-password__password">
 				<v-text-field
+					class="auth-panel__input"
 					:type="repeatIsVisible ? 'text' : 'password'"
 					label="Повторите пароль"
 					v-model="passwordRepeat"
@@ -26,11 +32,17 @@
 					dense
 				/>
 			</div>
-			<Button :disabled="!match || !form" @click="resetPassword">
-				Восстановить</Button
-			>
+			<div class="auth-panel__buttons">
+				<Button
+					class="auth-panel__button"
+					:disabled="!match || !form"
+					type="submit"
+				>
+					Восстановить</Button
+				>
+			</div>
 		</v-form>
-	</panel>
+	</div>
 </template>
 
 <script>

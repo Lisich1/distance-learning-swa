@@ -5,12 +5,6 @@ import colors from "./colors";
 Vue.use(Vuetify);
 
 export default new Vuetify({
-    icons: {
-        iconfont: "mdi", // default
-        values: {
-            // arrow: "mdi-chevron-down",
-        },
-    },
     theme: {
         themes: {
             light: {

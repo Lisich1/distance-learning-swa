@@ -1,12 +1,12 @@
 <template>
 	<v-btn
 		class="button"
+		:class="!secondary ? 'white--text' : ''"
 		height="40px"
 		:disabled="disabled"
 		:loading="loading"
 		@click="$emit('click')"
-		color="#7A76FF"
-		small
+		:color="secondary ? '#E8E8E8' : '#7A76FF'"
 	>
 		<slot></slot
 	></v-btn>
@@ -19,6 +19,7 @@ export default {
 		disabled: { type: Boolean, default: false },
 		active: { type: Boolean, default: false },
 		loading: { type: Boolean, default: false },
+		secondary: { type: Boolean, default: false },
 	},
 };
 </script>

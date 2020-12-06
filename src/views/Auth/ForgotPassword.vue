@@ -1,16 +1,18 @@
 <template>
-	<div class="forgot-password">
+	<div>
 		<InfoPanel v-if="isSent"
 			>В течении минуты на ваш e-mail придет письмо для подтверждения
 			электронного адреса, следуйте инструкции в письме</InfoPanel
 		>
 
-		<panel v-else>
-			<v-form class="d-flex align-center flex-column" v-model="form">
-				<h2>Восстановление пароля</h2>
-				<div class="input forgot-password__email">
+		<div class="auth-panel" v-else>
+			<v-form v-model="form" @submit.prevent="sendEmail">
+				<div class="auth-panel__header">
+					<h2>Восстановление пароля</h2>
+				</div>
+				<div class="auth-panel__inputs">
 					<v-text-field
-						class="input"
+						class="auth-panel__input"
 						type="text"
 						label="E-mail"
 						:rules="[rules.required]"
@@ -19,14 +21,13 @@
 						dense
 					/>
 				</div>
-				<Button
-					class="forgot-password__button"
-					:disabled="!form"
-					@click="sendEmail"
-					>Восстановить</Button
-				>
+				<div class="auth-panel__buttons">
+					<Button class="auth-panel__button" :disabled="!form" type="submit"
+						>Восстановить</Button
+					>
+				</div>
 			</v-form>
-		</panel>
+		</div>
 	</div>
 </template>
 

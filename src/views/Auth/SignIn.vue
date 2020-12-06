@@ -1,9 +1,17 @@
 <template>
-	<panel class="sign-in">
-		<v-form ref="form" v-model="form" class="sign-in__form">
-			<h2>Вход в систему</h2>
-			<div class="input sign-in__login">
+	<div class="auth-panel">
+		<v-form
+			ref="form"
+			v-model="form"
+			class="sign-in__form"
+			@submit.prevent="auth"
+		>
+			<div class="auth-panel__header">
+				<h2>Вход в систему</h2>
+			</div>
+			<div class="auth-panel__inputs">
 				<v-text-field
+					class="auth-panel__input"
 					v-model="login"
 					:rules="[rules.required]"
 					label="Логин"
@@ -12,9 +20,8 @@
 					dense
 					v-on:change="onChange"
 				></v-text-field>
-			</div>
-			<div class="input sign-in__password">
 				<v-text-field
+					class="auth-panel__input"
 					:type="isVisible ? 'text' : 'password'"
 					label="Пароль"
 					:rules="[rules.required, rules.length(4)]"
@@ -27,27 +34,29 @@
 					v-on:change="onChange"
 				/>
 			</div>
-			<span
-				>Забыли пароль?
-				<router-link class="red--text" to="/forgot-password"
-					>Восстановить</router-link
-				></span
-			>
-			<Button
-				class="sign-in__button"
-				:disabled="!form"
-				:loading="isLoading"
-				@click="auth"
-			>
-				Войти</Button
-			>
+			<div class="auth-panel__second-text">
+				<span
+					>Забыли пароль?
+					<router-link class="red--text" to="/forgot-password"
+						>Восстановить</router-link
+					></span
+				>
+			</div>
+			<div class="auth-panel__buttons">
+				<Button
+					class="auth-panel__button"
+					:disabled="!form"
+					:loading="isLoading"
+					type="submit"
+				>
+					Войти</Button
+				>
+			</div>
 		</v-form>
-	</panel>
+	</div>
 </template>
 
 <script>
-import Button from "@/components/Button/Button";
-
 export default {
 	data: () => ({
 		form: false,
@@ -86,9 +95,6 @@ export default {
 			this.passwordMessage = "";
 			this.loginMessage = "";
 		},
-	},
-	components: {
-		Button,
 	},
 };
 </script>

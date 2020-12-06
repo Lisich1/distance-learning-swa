@@ -6,7 +6,7 @@
 			</v-btn>
 		</template>
 
-		<panel>
+		<modal-panel>
 			<v-form class="d-flex align-center flex-column" v-model="form">
 				<h2>Регистрация учителя</h2>
 				<div class="input register-teacher__fio">
@@ -46,7 +46,7 @@
 					Получить логин и пароль</Button
 				>
 			</v-form>
-		</panel>
+		</modal-panel>
 	</v-dialog>
 </template>
 //TODO сделать стрелочку селекту
